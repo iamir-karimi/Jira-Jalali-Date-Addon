@@ -1,0 +1,16 @@
+<atlassian-plugin key="ir.fakharei.jira.jalali" name="Jira Jalali Date Add-on" plugins-version="2">
+    <plugin-info>
+        <description>Persian Jalali Date Picker, Jalali date display, Persian font and RTL improvements for Jira Server/Data Center. Author: AmirHossein Karimi (https://iamirs.ir/).</description>
+        <version>1.1.5</version>
+        <vendor name="Fakharei Marketing Agency / AmirHossein Karimi" url="https://iamirs.ir/"/>
+    </plugin-info>
+
+    <web-resource key="jalali-date-resources" name="Jalali Date Resources">
+        <resource type="download" name="jalali-date.js" location="/js/jalali-date.js"/>
+        <resource type="download" name="jalali-date.css" location="/css/jalali-date.css"/>
+        <resource type="download" name="fonts/IRANYekanXVF.woff2" location="/fonts/IRANYekanXVF.woff2"/>
+        <resource type="download" name="fonts/IRANYekanXVF.woff" location="/fonts/IRANYekanXVF.woff"/>
+        <context>atl.general</context>
+        <context>jira.general</context>
+    </web-resource>
+</atlassian-plugin>

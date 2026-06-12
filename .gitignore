@@ -1,0 +1,9 @@
+﻿target/
+*.class
+*.log
+.idea/
+.vscode/
+
+# Licensed fonts
+src/main/resources/fonts/*.woff
+src/main/resources/fonts/*.woff2

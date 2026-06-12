@@ -1,0 +1,209 @@
+@font-face {
+    font-family: 'IRANYekanXVF';
+    src: url('fonts/IRANYekanXVF.woff2') format('woff2'),
+         url('fonts/IRANYekanXVF.woff') format('woff-variations'),
+         url('fonts/IRANYekanXVF.woff') format('woff');
+    font-weight: 100 1000;
+    font-display: swap;
+}
+
+:root {
+    --fma-jalali-font: 'IRANYekanXVF', 'Vazirmatn', 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+/* Keep Jira layout LTR. Only apply Persian font, not global RTL. */
+body.fma-jalali-enabled,
+body.fma-jalali-enabled input,
+body.fma-jalali-enabled textarea,
+body.fma-jalali-enabled select,
+body.fma-jalali-enabled button,
+body.fma-jalali-enabled .aui-dialog,
+body.fma-jalali-enabled .aui-dialog2,
+body.fma-jalali-enabled .jira-dialog,
+body.fma-jalali-enabled .aui-page-panel,
+body.fma-jalali-enabled .ghx-issue,
+body.fma-jalali-enabled .issue-body-content {
+    font-family: var(--fma-jalali-font) !important;
+}
+
+/* RTL only for user-authored Persian content, never for Jira field rows/labels. */
+.fma-rtl-text {
+    direction: rtl !important;
+    text-align: right !important;
+    unicode-bidi: plaintext;
+    font-family: var(--fma-jalali-font) !important;
+}
+
+body.fma-jalali-enabled input::placeholder,
+body.fma-jalali-enabled textarea::placeholder {
+    direction: rtl;
+    text-align: right;
+    font-family: var(--fma-jalali-font) !important;
+}
+
+.fma-jalali-original-input {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.fma-jalali-field-wrap {
+    display: inline-block;
+    position: relative;
+    width: 230px;
+    max-width: 100%;
+    vertical-align: top;
+    font-family: var(--fma-jalali-font) !important;
+    direction: ltr;
+}
+
+.fma-jalali-input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 32px;
+    padding: 5px 8px;
+    border: 1px solid #7a869a;
+    border-radius: 3px;
+    background: #fff;
+    color: #172b4d;
+    direction: ltr;
+    text-align: left;
+    font-family: var(--fma-jalali-font) !important;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.fma-jalali-input::placeholder {
+    direction: rtl;
+    text-align: right;
+}
+
+.fma-jalali-input:focus {
+    outline: none;
+    border-color: #4c9aff;
+    box-shadow: 0 0 0 1px #4c9aff;
+}
+
+.fma-jalali-preview {
+    margin-top: 5px;
+    color: #42526e;
+    font-size: 12px;
+    line-height: 1.7;
+    direction: rtl;
+    text-align: right;
+    font-family: var(--fma-jalali-font) !important;
+}
+
+.fma-jdp {
+    position: absolute;
+    z-index: 999999;
+    top: 38px;
+    right: 0;
+    width: 314px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #dfe1e6;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(9, 30, 66, 0.25);
+    direction: rtl;
+    color: #172b4d;
+    font-family: var(--fma-jalali-font) !important;
+    font-size: 13px;
+}
+
+.fma-jdp * {
+    box-sizing: border-box;
+    font-family: var(--fma-jalali-font) !important;
+}
+
+.fma-jdp-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.fma-jdp-nav {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #dfe1e6;
+    border-radius: 4px;
+    background: #f4f5f7;
+    cursor: pointer;
+    color: #172b4d;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.fma-jdp-nav:hover { background: #ebecf0; }
+
+.fma-jdp-select {
+    height: 30px;
+    border: 1px solid #dfe1e6;
+    border-radius: 4px;
+    background: #fff;
+    color: #172b4d;
+    padding: 0 6px;
+    direction: rtl;
+}
+
+.fma-jdp-month { flex: 1; }
+.fma-jdp-year { width: 92px; }
+
+.fma-jdp-weekdays,
+.fma-jdp-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+}
+
+.fma-jdp-weekday {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #5e6c84;
+    padding: 6px 0;
+    white-space: nowrap;
+}
+
+.fma-jdp-day {
+    height: 31px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    color: #172b4d;
+    text-align: center;
+    font-size: 13px;
+}
+
+.fma-jdp-day:hover { background: #ebecf0; }
+.fma-jdp-day.is-today { border: 1px solid #0052cc; }
+.fma-jdp-day.is-selected { background: #0052cc; color: #fff; }
+.fma-jdp-day.is-empty { visibility: hidden; pointer-events: none; }
+
+.fma-jdp-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10px;
+    border-top: 1px solid #ebecf0;
+    padding-top: 8px;
+}
+
+.fma-jdp-btn {
+    border: 0;
+    background: transparent;
+    color: #0052cc;
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 12px;
+}
+
+.fma-jdp-btn:hover { text-decoration: underline; }
